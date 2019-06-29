@@ -1,0 +1,16 @@
+###Create 10GB Persistent Volume ###Hostpath you can change as per your current setup
+
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: mysql-pv-volume
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/openfiler/mysql"
